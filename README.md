@@ -167,4 +167,8 @@ The goal was not just to make it work, but to keep the structure clean and easy 
 ## 📸 Screenshots  
 
 <img width="1896" height="893" alt="image" src="https://github.com/user-attachments/assets/5599610a-7ad9-400a-a8ae-d8e76b288e4d" />
+<img width="1919" height="907" alt="image" src="https://github.com/user-attachments/assets/9d64adce-4751-4fbd-8304-45f69bffcd5a" />
+<img width="1918" height="893" alt="image" src="https://github.com/user-attachments/assets/c4b4ac3f-af09-4f90-a43a-f3c02d3240ba" />
+
+
 

@@ -166,11 +166,16 @@ The goal was not just to make it work, but to keep the structure clean and easy 
 
 ## 📸 Screenshots  
 
-<img width="1896" height="893" alt="image" src="https://github.com/user-attachments/assets/5599610a-7ad9-400a-a8ae-d8e76b288e4d" />
-<img width="1919" height="907" alt="image" src="https://github.com/user-attachments/assets/9d64adce-4751-4fbd-8304-45f69bffcd5a" />
-<img width="1918" height="893" alt="image" src="https://github.com/user-attachments/assets/c4b4ac3f-af09-4f90-a43a-f3c02d3240ba" />
-<img width="1919" height="1025" alt="image" src="https://github.com/user-attachments/assets/bca15fb5-bd30-433c-9410-91e57c076df2" />
+<img width="1911" height="980" alt="image" src="https://github.com/user-attachments/assets/42cc78da-0ec0-4f3c-ba3f-0798b0c7c295" />
+  
+<img width="1556" height="997" alt="image" src="https://github.com/user-attachments/assets/052af453-aeb7-4f7d-9793-d3a211f49f68" />
+<img width="1918" height="1026" alt="image" src="https://github.com/user-attachments/assets/eb73b18c-be8b-4456-af09-65a577e9b600" />
 
 
 
 
+
+
+
+
++

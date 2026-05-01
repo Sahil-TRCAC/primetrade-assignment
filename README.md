@@ -1,165 +1,170 @@
-# TaskManager API — Primetrade.ai Backend Intern Assignment
+# TaskManager — Primetrade.ai Backend Intern Assignment
 
-A secure, scalable REST API with JWT authentication, role-based access control, and a Vanilla JS frontend.
+This project is a full-stack task management application built as part of the Primetrade.ai Backend Intern assignment.
 
----
-
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Backend | Flask 3.0, Python 3.10+ |
-| Auth | Flask-JWT-Extended (JWT) |
-| ORM | Flask-SQLAlchemy |
-| Database | SQLite (dev) / PostgreSQL (prod-ready) |
-| Password Hashing | Flask-Bcrypt |
-| CORS | Flask-CORS |
-| Frontend | Vanilla JS, HTML, CSS |
-| Testing | Pytest |
+It focuses on building a clean, secure REST API with proper authentication, along with a simple but functional frontend to interact with it.
 
 ---
 
-## Project Structure
+## 🚀 Tech Stack
+
+* **Backend:** Flask (Python)
+* **Authentication:** JWT (Flask-JWT-Extended)
+* **Database:** SQLite (can be upgraded to PostgreSQL)
+* **ORM:** Flask-SQLAlchemy
+* **Password Security:** Flask-Bcrypt
+* **Frontend:** Vanilla JavaScript, HTML, CSS
+* **Testing:** Pytest
+
+---
+
+## ✨ Features
+
+* User registration and login with JWT authentication
+* Role-based access control (user vs admin)
+* Full CRUD operations for tasks
+* Admin can view all users and tasks
+* Secure password hashing (bcrypt)
+* Structured API responses
+* Simple responsive frontend
+
+---
+
+## 📁 Project Structure
 
 ```
 primetrade_assignment/
 ├── app/
-│   ├── __init__.py          # App factory
-│   ├── config.py            # Configuration
-│   ├── models/
-│   │   └── models.py        # User & Task models
-│   ├── api/
-│   │   └── v1/
-│   │       ├── auth.py      # Register, Login, Me
-│   │       └── tasks.py     # CRUD + Admin routes
-│   └── utils/
-│       └── helpers.py       # Response helpers, role decorator
-├── frontend/
-│   └── index.html           # Single-page UI
-├── tests/
-│   └── test_api.py          # 12 pytest test cases
-├── run.py                   # Entry point
+│   ├── api/v1/         # Routes (auth + tasks)
+│   ├── models/         # Database models
+│   ├── utils/          # Helpers & decorators
+│   ├── config.py       # Configuration
+│   └── __init__.py     # App factory
+├── frontend/           # UI (index.html)
+├── tests/              # Pytest test cases
+├── run.py              # Entry point
 ├── requirements.txt
 ├── .env.example
-└── README.md
 ```
 
 ---
 
-## Setup & Installation
+## ⚙️ Setup Instructions
 
-### 1. Clone the repository
+### 1. Clone the repo
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/primetrade-assignment.git
-cd primetrade-assignment
+git clone https://github.com/YOUR_USERNAME/task-manager.git
+cd task-manager
 ```
+
+---
 
 ### 2. Create virtual environment
+
 ```bash
 python -m venv venv
-source venv/bin/activate        # Mac/Linux
-venv\Scripts\activate           # Windows
+venv\Scripts\activate     # Windows
+# source venv/bin/activate (Mac/Linux)
 ```
 
+---
+
 ### 3. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
+---
+
 ### 4. Configure environment
+
 ```bash
 cp .env.example .env
-# Edit .env with your own secret keys
 ```
 
-### 5. Run the server
+---
+
+### 5. Run backend
+
 ```bash
 python run.py
 ```
-API will be available at: `http://localhost:5000`
 
-### 6. Open the frontend
-Open `frontend/index.html` in your browser (no server needed).
+Backend runs on:
 
----
-
-## API Reference (v1)
-
-All endpoints are prefixed with `/api/v1`
-
-### Auth Endpoints
-
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| POST | `/auth/register` | ❌ | Register a new user |
-| POST | `/auth/login` | ❌ | Login and get JWT token |
-| GET | `/auth/me` | ✅ | Get current user profile |
-
-### Task Endpoints
-
-| Method | Endpoint | Auth | Role | Description |
-|--------|----------|------|------|-------------|
-| GET | `/tasks` | ✅ | user/admin | Get tasks (admin sees all) |
-| GET | `/tasks/:id` | ✅ | user/admin | Get single task |
-| POST | `/tasks` | ✅ | user/admin | Create a task |
-| PUT | `/tasks/:id` | ✅ | user/admin | Update a task |
-| DELETE | `/tasks/:id` | ✅ | user/admin | Delete a task |
-| GET | `/tasks/admin/users` | ✅ | admin only | List all users |
-
-### Health Check
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/health` | API status |
-
-### Response Format
-All responses follow a consistent schema:
-```json
-{
-  "status": "success" | "error",
-  "message": "Human-readable message",
-  "data": { ... }
-}
+```
+http://localhost:5000
 ```
 
 ---
 
-## Role-Based Access
-
-| Feature | User | Admin |
-|---------|------|-------|
-| Register / Login | ✅ | ✅ |
-| View own tasks | ✅ | ✅ |
-| View all tasks | ❌ | ✅ |
-| Create task | ✅ | ✅ |
-| Edit/Delete own task | ✅ | ✅ |
-| Edit/Delete any task | ❌ | ✅ |
-| View all users | ❌ | ✅ |
-
-> **Note:** The first user to register with `"role": "admin"` in the request body becomes admin.
-
----
-
-## Running Tests
+### 6. Run frontend
 
 ```bash
-pytest tests/ -v
+cd frontend
+python -m http.server 5500
 ```
 
-12 test cases covering: registration, login, auth protection, CRUD operations, validation, and error handling.
+Open:
+
+```
+http://localhost:5500
+```
 
 ---
 
-## Security Practices
+## 🧪 How to Use
 
-- Passwords hashed with **bcrypt** (never stored as plain text)
-- **JWT tokens** with expiry (1 hour default, configurable)
-- All secrets stored in **environment variables** (never hardcoded)
-- Input **validation** on all endpoints with structured error messages
-- **Role-based access control** enforced via decorator
-- **CORS** configured for frontend-backend separation
+1. Register a new account
+2. Login using credentials
+3. Create tasks from dashboard
+4. Edit or delete tasks
+5. Admin can view all users
 
 ---
 
-## Scalability Note
+## 📡 API Overview
 
-See `SCALABILITY.md` for full details on how this project is designed to scale.
+Base URL:
+
+```
+http://localhost:5000/api/v1
+```
+
+### Auth
+
+* `POST /auth/register`
+* `POST /auth/login`
+* `GET /auth/me`
+
+### Tasks
+
+* `GET /tasks`
+* `POST /tasks`
+* `PUT /tasks/:id`
+* `DELETE /tasks/:id`
+
+---
+
+## 🔐 Security Notes
+
+* Passwords are hashed using bcrypt
+* JWT tokens expire after a set time
+* Role-based access control enforced
+* No secrets are hardcoded
+
+---
+
+## 🧠 Notes
+
+This project was built with simplicity and clarity in mind.
+The goal was not just to make it work, but to keep the structure clean and easy to understand.
+
+---
+
+## 📸 Screenshots  
+
+<img width="1896" height="893" alt="image" src="https://github.com/user-attachments/assets/5599610a-7ad9-400a-a8ae-d8e76b288e4d" />
+

@@ -147,6 +147,7 @@ button{
   width:350px;
 }
 
+
 /* RESPONSIVE */
 @media(max-width:600px){
   .top-bar{flex-direction:column;gap:10px}
@@ -171,24 +172,22 @@ button{
 <div class="container" id="auth-section">
   <div class="auth-card">
     <div class="tabs">
-      <button class="tab active" onclick="switchTab('login')">Login</button>
-      <button class="tab" onclick="switchTab('register')">Register</button>
+    <button id="loginTab" class="tab active" onclick="switchTab('login')">Login</button>
+<button id="registerTab" class="tab" onclick="switchTab('register')">Register</button>
     </div>
 
-```
-<div id="login-form">
+<div id="loginForm">
   <input id="login-email" placeholder="Email">
   <input id="login-password" type="password" placeholder="Password">
   <button class="btn-primary full" onclick="login()">Login</button>
 </div>
 
-<div id="register-form" style="display:none">
+<div id="registerForm" style="display:none">
   <input id="reg-username" placeholder="Username">
   <input id="reg-email" placeholder="Email">
   <input id="reg-password" type="password" placeholder="Password">
   <button class="btn-primary full" onclick="register()">Create Account</button>
 </div>
-```
 
   </div>
 </div>
@@ -228,32 +227,33 @@ document.addEventListener("DOMContentLoaded",()=>{
   if(token && currentUser) showDashboard();
 });
 
-function switchTab(tab){
-  document.getElementById("login-form").style.display=tab==="login"?"block":"none";
-  document.getElementById("register-form").style.display=tab==="register"?"block":"none";
-}
+function switchTab(tab) {
+  console.log("Switching to:", tab); // DEBUG
 
-async function login(){
-  const email=document.getElementById("login-email").value;
-  const password=document.getElementById("login-password").value;
+  const loginTab = document.getElementById("loginTab");
+  const registerTab = document.getElementById("registerTab");
 
-  const res=await fetch(API+"/auth/login",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({email,password})
-  });
+  const loginForm = document.getElementById("loginForm");
+  const registerForm = document.getElementById("registerForm");
 
-  const data=await res.json();
+  if (!loginTab || !registerTab || !loginForm || !registerForm) {
+    console.error("Missing elements");
+    return;
+  }
 
-  if(data.status!=="success"){alert(data.message);return;}
+  if (tab === "login") {
+    loginForm.style.display = "block";
+    registerForm.style.display = "none";
 
-  token=data.data.access_token;
-  currentUser=data.data.user;
+    loginTab.classList.add("active");
+    registerTab.classList.remove("active");
+  } else {
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
 
-  localStorage.setItem("token",token);
-  localStorage.setItem("user",JSON.stringify(currentUser));
-
-  showDashboard();
+    registerTab.classList.add("active");
+    loginTab.classList.remove("active");
+  }
 }
 
 async function register(){

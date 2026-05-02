@@ -68,4 +68,8 @@ def create_app():
     def health():
         return jsonify({"status": "success", "message": "API is running", "version": "1.0.0"})
 
+    # 🔥 ADD THIS BLOCK (IMPORTANT)
+    with app.app_context():
+        db.create_all()
+
     return app

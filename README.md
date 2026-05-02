@@ -176,6 +176,9 @@ The goal was not just to make it work, but to keep the structure clean and easy 
 ### API Testing (Postman)
 ![Postman](screenshots/postman.png)
 
+Live API:
+https://primetrade-assignment-kcx0.onrender.com/api/v1/health
+
   
 
 

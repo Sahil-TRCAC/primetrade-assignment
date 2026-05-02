@@ -1,10 +1,4 @@
 .env
-__pycache__/
-*.pyc
-*.db
 venv/
-.venv/
-*.egg-info/
-dist/
-build/
-.DS_Store
+instance/
+__pycache__/

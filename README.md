@@ -111,12 +111,17 @@ DELETE /api/v1/tasks/{id}
 ## 📁 Project Structure
 primetrade_assignment/
 ├── app/
-│ ├── api/v1/
+│ ├── api/
+│ │ └── v1/
+│ │ ├── auth.py
+│ │ ├── tasks.py
+│ │ └── init.py
 │ ├── models/
 │ ├── utils/
 │ ├── config.py
 │ └── init.py
 ├── frontend/
+│ └── index.html
 ├── tests/
 ├── run.py
 ├── requirements.txt

@@ -110,7 +110,7 @@ DELETE /api/v1/tasks/{id}
 
 ## 📁 Project Structure
 
-
+```
 primetrade_assignment/
 ├── app/
 │   ├── api/
@@ -128,6 +128,7 @@ primetrade_assignment/
 ├── run.py
 ├── requirements.txt
 └── .env.example
+```
 
 
 ---

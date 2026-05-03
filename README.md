@@ -109,3 +109,32 @@ DELETE /api/v1/tasks/{id}
 ---
 
 ## 📁 Project Structure
+primetrade_assignment/
+├── app/
+│ ├── api/v1/
+│ ├── models/
+│ ├── utils/
+│ ├── config.py
+│ └── init.py
+├── frontend/
+├── tests/
+├── run.py
+├── requirements.txt
+└── .env.example
+
+
+---
+
+## ⚙️ Local Setup
+
+```bash
+git clone https://github.com/Sahil-TRCAC/primetrade-assignment.git
+cd primetrade-assignment
+
+python -m venv venv
+venv\Scripts\activate
+
+pip install -r requirements.txt
+cp .env.example .env
+
+python run.py
